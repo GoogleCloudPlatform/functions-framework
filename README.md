@@ -51,6 +51,9 @@ Where the parameters have the contents detailed in [background functions](https:
 
 # Functions Framework Contract
 
+> Note: This section is useful for Function Framework builders. Developers should view individual
+> function framework repos for how to use a specific framework.
+
 This contract builds upon the baseline compliance of the existing Cloud Run contract (e.g. the [Knative Runtime Contract](https://github.com/knative/serving/blob/master/docs/runtime-contract.md)), which itself is built on OCI.
 
 ## Goal
@@ -67,7 +70,9 @@ A Functions Framework consists of **two parts**:
 
 ### Statefulness
 
-Functions are generally deployed to stateless compute environments. In such an environment, the container that is running the function may be instantiated from scratch, paused, started or stopped based on inbound request volume.
+Functions are generally deployed to stateless compute environments. In such an environment, the
+container or other environment that is running the function may be instantiated from scratch, paused, started or stopped
+based on inbound request volume.
 
 The framework should be able to gracefully handle these dynamics, for example, by minimizing container and framework startup times. The framework should be long-lived and able to handle repeated invocations of the developer's function.
 
@@ -86,6 +91,8 @@ For performance, efficiency and correctness reasons, the framework must be able 
 When the framework and function are deployed as a container to a Knative environment, additional [Lifecycle considerations](https://github.com/knative/serving/blob/master/docs/runtime-contract.md#lifecycle) apply.  As a general rule of thumb, frameworks should do as much as possible to ensure they are ready to receive traffic before listening on the HTTP port.
 
 ## URL Space
+
+> Note: URL definitions are found in [RFC 3986](https://tools.ietf.org/html/rfc3986#section-3).
 
 The framework's web server must listen to ingress HTTP requests defined with the following URL scheme using the `PORT` specified above:
 
@@ -110,7 +117,7 @@ The framework must support at least the HTTP and CloudEvents function types. In 
 - The function signatures which developers must adhere to when writing functions for use with a Functions Framework
 - The mechanism by which the developer signals that the function has completed performing useful work
 
-The developer must implicitly or explicitly signal the function's signature type to the framework. This enables the framework to take appropriate unmarshalling, invocation and completion signalling steps.
+The developer must signal the function's signature type to the framework. This enables the framework to take appropriate unmarshalling, invocation and completion signalling steps.
 
 ### HTTP Functions
 
