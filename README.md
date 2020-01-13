@@ -13,9 +13,8 @@ different environments, including:
 ## Video
 
 <a href="https://www.youtube.com/watch?v=qQiqo1zZJmI">
-<img width="496" alt="" src="https://user-images.githubusercontent.com/744973/71794367-bdafaa80-3073-11ea-8728-61d24942bc56.png">
-
-Watch a video about the Functions Framework</a>
+<img width="496" alt="Watch a video about the Functions Framework" src="https://user-images.githubusercontent.com/744973/71794367-bdafaa80-3073-11ea-8728-61d24942bc56.png">
+</a>
 
 ## Languages
 
