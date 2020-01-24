@@ -10,6 +10,12 @@ different environments, including:
 *   [Cloud Run and Cloud Run on GKE](https://cloud.google.com/run/)
 *   [Knative](https://github.com/knative/)-based environments
 
+## Video
+
+<a href="https://www.youtube.com/watch?v=qQiqo1zZJmI">
+<img width="496" alt="Watch a video about the Functions Framework" src="https://user-images.githubusercontent.com/744973/71794367-bdafaa80-3073-11ea-8728-61d24942bc56.png">
+</a>
+
 ## Languages
 
 The Function Framework is currently implemented for these runtimes:
