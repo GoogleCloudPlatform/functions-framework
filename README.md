@@ -18,7 +18,7 @@ different environments, including:
 
 ## Languages
 
-The Function Framework is currently implemented for these runtimes:
+The Functions Framework is implemented for these runtimes:
 
 - [Node.js](https://github.com/GoogleCloudPlatform/functions-framework-nodejs)
 - [Go](https://github.com/GoogleCloudPlatform/functions-framework-go)
@@ -26,10 +26,7 @@ The Function Framework is currently implemented for these runtimes:
 - [PHP](https://github.com/GoogleCloudPlatform/functions-framework-php)
 - [Python](https://github.com/GoogleCloudPlatform/functions-framework-python)
 - [Ruby](https://github.com/GoogleCloudPlatform/functions-framework-ruby)
-
-These languages do not have complete Function Frameworks. You can upvote tracking issues here:
-
-- [.NET](https://github.com/GoogleCloudPlatform/functions-framework/issues/8)
+- [.NET](https://github.com/GoogleCloudPlatform/functions-framework-dotnet)
 
 ## Specification
 
