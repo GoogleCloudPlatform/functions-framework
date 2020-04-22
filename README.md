@@ -112,6 +112,11 @@ In a different example, a service using the Functions Framework could have the h
 
 Requesting this URL would invoke the function of name $FUNCTION_NAME.
 
+> Note that the framework must listen to all inbound paths (`.*`) and route these requests to the function, with the following exceptions:
+> 
+> - `/robots.txt` - must respond with 404 without invoking function
+> - `/favicon.ico` - must response with 404 without invoking function
+
 ## Supported Function Types
 
 The framework must support at least the HTTP and CloudEvents function types. In statically typed languages, the framework must include an additional function type whereby the user can define unmarshalling rules. These function types dictate:
