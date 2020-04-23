@@ -167,3 +167,14 @@ Example steps taken by the function-to-app converter may include:
 ## Stdout/Stderr and Logging expectations
 
 Application logs to stdout/stderr within application code and logs from the Functions Framework itself are expected to appear in stdout/stderr of the process running the Functions Framework.
+
+## HTTP Status Codes
+
+The framework should return 4XX HTTP status error codes for client errors and 5XX HTTP status error codes for Function Framework errors. Examples:
+
+- 4XX: Client errors
+  - 422: Client request contain semantic errors
+  - 429: Too many requests
+- 5XX: Internal errors from the Functions Framework itself
+  - 504: Function timeout
+  - 529: Function is overloaded and cannot handle requests
