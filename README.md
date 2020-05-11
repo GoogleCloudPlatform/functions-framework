@@ -167,3 +167,13 @@ Example steps taken by the function-to-app converter may include:
 ## Stdout/Stderr and Logging expectations
 
 Application logs to stdout/stderr within application code and logs from the Functions Framework itself are expected to appear in stdout/stderr of the process running the Functions Framework.
+
+## HTTP Status Codes
+
+The framework should return 4XX HTTP status error codes for client errors and 5XX HTTP status error codes for Function Framework errors according to [RFC 7231](https://tools.ietf.org/html/rfc7231#page-47). Examples:
+
+- [4xx](https://tools.ietf.org/html/rfc7231#section-6.5): External errors from clients of the Functions Framework
+  - [400](https://tools.ietf.org/html/rfc7231#section-6.5.1): Bad Request (i.e. malformed CloudEvent)
+  - [429](https://tools.ietf.org/html/rfc6585#section-4): Too many requests to the framework
+- [5xx](https://tools.ietf.org/html/rfc7231#section-6.6): Internal errors from the Functions Framework itself
+  - [504](https://tools.ietf.org/html/rfc7231#section-6.6.5): Function timeout
