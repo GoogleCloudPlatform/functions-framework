@@ -170,11 +170,10 @@ Application logs to stdout/stderr within application code and logs from the Func
 
 ## HTTP Status Codes
 
-The framework should return 4XX HTTP status error codes for client errors and 5XX HTTP status error codes for Function Framework errors. Examples:
+The framework should return 4XX HTTP status error codes for client errors and 5XX HTTP status error codes for Function Framework errors according to [RFC 7231](https://tools.ietf.org/html/rfc7231#page-47). Examples:
 
-- 4XX: Client errors
-  - 422: Client request contain semantic errors
-  - 429: Too many requests
-- 5XX: Internal errors from the Functions Framework itself
-  - 504: Function timeout
-  - 529: Function is overloaded and cannot handle requests
+- [4xx](https://tools.ietf.org/html/rfc7231#section-6.5): External errors from clients of the Functions Framework
+  - [400](https://tools.ietf.org/html/rfc7231#section-6.5.1): Bad Request (i.e. malformed CloudEvent)
+  - [429](https://tools.ietf.org/html/rfc6585#section-4): Too many requests to the framework
+- [5xx](https://tools.ietf.org/html/rfc7231#section-6.6): Internal errors from the Functions Framework itself
+  - [504](https://tools.ietf.org/html/rfc7231#section-6.6.5): Function timeout
