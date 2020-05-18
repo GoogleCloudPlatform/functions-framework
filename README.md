@@ -107,10 +107,7 @@ For example, the hostname of a process running the functions framework running t
 
 Requesting this URL would invoke the function `$FUNCTION_TARGET`.
 
-In a different example, a service using the Functions Framework could have the hostname `us-central1-my-gcp-project.cloudfunctions.net` resulting in the URL:
-`https://us-central1-my-gcp-project.cloudfunctions.net/$FUNCTION_NAME`
-
-Requesting this URL would invoke the function of name $FUNCTION_NAME.
+In a different example, a service using the Functions Framework could have the url `us-central1-my-gcp-project.cloudfunctions.net/my-function`.
 
 > Note that the framework must listen to all inbound paths (`.*`) and route these requests to the function, with the following exceptions:
 > 
