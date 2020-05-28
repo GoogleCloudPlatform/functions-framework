@@ -124,11 +124,15 @@ The Functions Framework **must** support signature type `http`.
 
 When the container receives an ingress request, the framework must invoke the developer's function by passing a language-idiomatic representation of HTTP objects as arguments to the function. These objects must enable the developer to perform common HTTP tasks, such as inspecting the request's content encoding or headers. These objects should be accurate representations of the HTTP request received by the execution environment (i.e., path, body and headers should not be modified before passing them to the user's function).
 
-### CloudEvents Functions (Signature Type: `cloudevents`)
+### CloudEvents Functions (Signature Type: `cloudevent`)
 
-The Functions Framework **must** support signature type `cloudevents`.
+The Functions Framework **must** support signature type `cloudevent`.
 
-When the container receives an ingress request, the framework must invoke the developer's function by passing an object corresponding to a [CloudEvents type](https://github.com/cloudevents/spec/blob/master/spec.md). This object does not expose HTTP semantics to the developer's function. The framework must handle unmarshalling HTTP requests into the CloudEvents object that is passed to the developer's function, and should support both [binary and structured content modes](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md#3-http-message-mapping) for incoming HTTP CloudEvent requests.
+When the container receives an ingress request, the framework must invoke the developer's function by passing an object corresponding to a [CloudEvents type](https://github.com/cloudevents/spec/blob/master/spec.md). This object does not expose HTTP semantics to the developer's function. The framework must handle unmarshalling HTTP requests into the CloudEvents object that is passed to the developer's function, and should support both [binary and structured content modes](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md#3-http-message-mapping) for incoming HTTP CloudEvent requests. This is usually done through a CloudEvents SDK.
+
+Your function have must use the following signature:
+
+- 1st parameter `cloudevent`
 
 The developer's function must either explicitly or implicitly signal that it has completed performing useful work. The function may explicitly signal this condition by explicitly returning. The function may implicitly signal this condition by simply evaluating until it reaches the end of the function's code block.
 
