@@ -10,6 +10,8 @@ different environments, including:
 *   [Cloud Run and Cloud Run on GKE](https://cloud.google.com/run/)
 *   [Knative](https://github.com/knative/)-based environments
 
+These functions allow you to easily handle **HTTP requests** or **[CloudEvents](https://cloudevents.io/)** in a Functions as a Service (FaaS) programming style.
+
 ## Video
 
 <a href="https://www.youtube.com/watch?v=qQiqo1zZJmI">
@@ -28,27 +30,19 @@ The Functions Framework is implemented for these runtimes:
 - [Ruby](https://github.com/GoogleCloudPlatform/functions-framework-ruby)
 - [.NET](https://github.com/GoogleCloudPlatform/functions-framework-dotnet)
 
-## Specification
+## Specification Summary
 
-### Parameters
+A Functions Framework instantiates web server and invokes function code in response to an HTTP request (`http`) or CloudEvent request (`cloudevent`) depending on the function's signature type. A Functions Framework may optionally support functions with signature type `event` for legacy-style events.
+
+The Functions Framework library must be configurable via environment variables and may be configurable via command-line flags:
 
 Command-line flag         | Environment variable      | Description
 ------------------------- | ------------------------- | -----------
 `--port`                    | `PORT`                    | The port on which the Functions Framework listens for requests. Default: `8080`
 `--target`         | `FUNCTION_TARGET`         | The name of the exported function to be invoked in response to requests. Default: `function`
-`--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when writing your function. Controls unmarshalling rules and determines which arguments are used to invoke your function. Default: `http`; accepted values: `http` or `event`
+`--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when writing your function. Controls unmarshalling rules and determines which arguments are used to invoke your function. Default: `http`; accepted values: `http` or `cloudevent`
 
-### Cloud Events
-
-The Functions Framework can unmarshall incoming [CloudEvents](http://cloudevents.io/) payloads to data and context objects. These will be passed as arguments to your function when it receives a request.
-
-Your function have `--signature-type event` and must use the following signature:
-
-- 1st parameter `data`
-- 2nd parameter `context`
-
-Where the parameters have the contents detailed in [background functions](https://cloud.google.com/functions/docs/writing/background#function_parameters).
-
+> Note: `SIGNATURE_TYPE: event` supports legacy, non-CloudEvent events. Support for these event formats are not required for Function Frameworks.
 
 -----
 
@@ -116,7 +110,7 @@ In a different example, a service using the Functions Framework could have the u
 
 ## Supported Function Types
 
-The framework must support at least the HTTP and CloudEvents function types. In statically typed languages, the framework must include an additional function type whereby the user can define unmarshalling rules. These function types dictate:
+The framework **must** support at least the `http` and `cloudevent` function types. The framework **may** support legacy-style `event` function types. In statically typed languages, the framework must include an additional function type whereby the user can define unmarshalling rules. These function types dictate:
 
 - The steps taken by the framework in response to ingress requests
 - The function signatures which developers must adhere to when writing functions for use with a Functions Framework
@@ -124,17 +118,32 @@ The framework must support at least the HTTP and CloudEvents function types. In 
 
 The developer must signal the function's signature type to the framework. This enables the framework to take appropriate unmarshalling, invocation and completion signalling steps.
 
-### HTTP Functions
+### HTTP Functions (Signature Type: `http`)
+
+The Functions Framework **must** support signature type `http`.
 
 When the container receives an ingress request, the framework must invoke the developer's function by passing a language-idiomatic representation of HTTP objects as arguments to the function. These objects must enable the developer to perform common HTTP tasks, such as inspecting the request's content encoding or headers. These objects should be accurate representations of the HTTP request received by the execution environment (i.e., path, body and headers should not be modified before passing them to the user's function).
 
-The developer's function must explicitly signal that it has completed performing useful work by sending a response to the Functions Framework. This response signals that the stateless container can be stopped.
+### CloudEvents Functions (Signature Type: `cloudevent`)
 
-### CloudEvents Functions
+The Functions Framework **must** support signature type `cloudevent`.
 
-When the container receives an ingress request, the framework must invoke the developer's function by passing an object corresponding to a [CloudEvents type](https://github.com/cloudevents/spec/blob/master/spec.md). This object does not expose HTTP semantics to the developer's function. The framework must handle unmarshalling HTTP requests into the CloudEvents object that is passed to the developer's function, and should support both [binary and structured content modes](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md#3-http-message-mapping) for incoming HTTP CloudEvent requests.
+When the container receives an ingress request, the framework must invoke the developer's function by passing an object corresponding to a [CloudEvents type](https://github.com/cloudevents/spec/blob/master/spec.md). This object does not expose HTTP semantics to the developer's function. The framework must handle unmarshalling HTTP requests into the CloudEvents object that is passed to the developer's function, and should support both [binary and structured content modes](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md#3-http-message-mapping) for incoming HTTP CloudEvent requests. This is usually done through a CloudEvents SDK.
+
+Your function have must use the following signature:
+
+- 1st parameter `cloudevent`
 
 The developer's function must either explicitly or implicitly signal that it has completed performing useful work. The function may explicitly signal this condition by explicitly returning. The function may implicitly signal this condition by simply evaluating until it reaches the end of the function's code block.
+
+### Legacy Events (Signature Type: `event`)
+
+The Functions Framework **may** support signature type `events`. This signature supports non-CloudEvent style events. Your function have must use the following signature:
+
+- 1st parameter `data`
+- 2nd parameter `context`
+
+Where the parameters have the contents detailed in [background functions](https://cloud.google.com/functions/docs/writing/background#function_parameters).
 
 ## Configuration
 
