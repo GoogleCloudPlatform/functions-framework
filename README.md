@@ -10,7 +10,7 @@ different environments, including:
 *   [Cloud Run and Cloud Run on GKE](https://cloud.google.com/run/)
 *   [Knative](https://github.com/knative/)-based environments
 
-These functions allow you to easily handle **HTTP requests** or **[CloudEvents](https://cloudevents.io/)** in a FaaS programming style.
+These functions allow you to easily handle **HTTP requests** or **[CloudEvents](https://cloudevents.io/)** in a Functions as a Service (FaaS) programming style.
 
 ## Video
 
