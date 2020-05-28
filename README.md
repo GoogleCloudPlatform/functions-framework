@@ -110,7 +110,7 @@ In a different example, a service using the Functions Framework could have the u
 
 ## Supported Function Types
 
-The framework **must** support at least the `http` and `cloudevents` function types. The framework **may** support legacy-style `event` function types. In statically typed languages, the framework must include an additional function type whereby the user can define unmarshalling rules. These function types dictate:
+The framework **must** support at least the `http` and `cloudevent` function types. The framework **may** support legacy-style `event` function types. In statically typed languages, the framework must include an additional function type whereby the user can define unmarshalling rules. These function types dictate:
 
 - The steps taken by the framework in response to ingress requests
 - The function signatures which developers must adhere to when writing functions for use with a Functions Framework
