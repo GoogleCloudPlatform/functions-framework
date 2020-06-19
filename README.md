@@ -50,6 +50,9 @@ Command-line flag         | Environment variable      | Description
 
 > Note: This section is useful for Function Framework builders. Developers should view individual
 > function framework repos for how to use a specific framework.
+> 
+> Test framework conformance with this tool:
+> https://github.com/GoogleCloudPlatform/functions-framework-conformance
 
 This contract builds upon the baseline compliance of the existing Cloud Run contract (e.g. the [Knative Runtime Contract](https://github.com/knative/serving/blob/master/docs/runtime-contract.md)), which itself is built on OCI.
 
