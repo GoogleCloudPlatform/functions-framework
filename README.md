@@ -30,6 +30,10 @@ The Functions Framework is implemented for these runtimes:
 - [Ruby](https://github.com/GoogleCloudPlatform/functions-framework-ruby)
 - [.NET](https://github.com/GoogleCloudPlatform/functions-framework-dotnet)
 
+Community Function Frameworks:
+
+- [R](https://github.com/averikitsch/functions-framework-r)
+
 ## Specification Summary
 
 A Functions Framework instantiates web server and invokes function code in response to an HTTP request (`http`) or CloudEvent request (`cloudevent`) depending on the function's signature type. A Functions Framework may optionally support functions with signature type `event` for legacy-style events.
