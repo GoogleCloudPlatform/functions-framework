@@ -38,9 +38,12 @@ The Functions Framework is implemented for these runtimes:
 - **Lint**: Tests code style.
 - **Conformance**: Tests adherence to the Functions Framework contract.
 
-Community Function Frameworks:
+Other Function Frameworks:
+
+> These Function Frameworks are not currently supported by Google Cloud
 
 - [R](https://github.com/averikitsch/functions-framework-r)
+- [C++](https://github.com/GoogleCloudPlatform/functions-framework-cpp)
 
 ## Specification Summary
 
