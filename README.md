@@ -40,7 +40,7 @@ The Functions Framework is implemented for these runtimes:
 
 Other Function Frameworks:
 
-> These Function Frameworks are not currently used by Google Cloud
+> These Function Frameworks are not currently supported by Google Cloud
 
 - [R](https://github.com/averikitsch/functions-framework-r)
 - [C++](https://github.com/GoogleCloudPlatform/functions-framework-cpp)
