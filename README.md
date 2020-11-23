@@ -44,6 +44,7 @@ Other Function Frameworks:
 
 - [R](https://github.com/averikitsch/functions-framework-r)
 - [C++](https://github.com/GoogleCloudPlatform/functions-framework-cpp)
+- [Dart](https://github.com/GoogleCloudPlatform/functions-framework-dart)
 
 ## Specification Summary
 
