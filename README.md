@@ -229,8 +229,8 @@ The framework should return 4XX HTTP status error codes for client errors and 5X
 [ff_ruby_unit_link]:  https://github.com/GoogleCloudPlatform/functions-framework-ruby/actions?query=workflow%3A"Ruby+Unit+CI"
 [ff_dotnet_unit_img]: https://github.com/GoogleCloudPlatform/functions-framework-dotnet/workflows/.NET%20Unit%20CI/badge.svg
 [ff_dotnet_unit_link]:  https://github.com/GoogleCloudPlatform/functions-framework-dotnet/actions?query=workflow%3A".NET+Unit+CI"
-[ff_cpp_unit_img]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/workflows/c%2B%2B%20Unit%20CI/badge.svg
-[ff_cpp_unit_link]:  https://github.com/GoogleCloudPlatform/functions-framework-cpp/actions?query=workflow%3A"C%2B%2BUnit+CI"
+[ff_cpp_unit_img]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/workflows/C++%20Unit%20CI/badge.svg
+[ff_cpp_unit_link]:  https://github.com/GoogleCloudPlatform/functions-framework-cpp/actions?query=workflow%3A%22C%2B%2B+Unit+CI%22
 [ff_dart_unit_img]: https://github.com/GoogleCloudPlatform/functions-framework-dart/workflows/Dart%20Unit%20CI/badge.svg
 [ff_dart_unit_link]:  https://github.com/GoogleCloudPlatform/functions-framework-dart/actions?query=workflow%3A"Dart+Unit+CI"
 
@@ -250,7 +250,7 @@ The framework should return 4XX HTTP status error codes for client errors and 5X
 [ff_dotnet_lint_img]: https://github.com/GoogleCloudPlatform/functions-framework-dotnet/workflows/.NET%20Lint%20CI/badge.svg
 [ff_dotnet_lint_link]:  https://github.com/GoogleCloudPlatform/functions-framework-dotnet/actions?query=workflow%3A".NET+Lint+CI"
 [ff_cpp_lint_img]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/workflows/C%2B%2B%20Lint%20CI/badge.svg
-[ff_cpp_lint_link]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/workflows/C%2B%2B%20Lint%20CI/badge.svg
+[ff_cpp_lint_link]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/actions?query=workflow%3A%22C%2B%2B+Lint+CI%22
 [ff_dart_lint_img]:  https://github.com/GoogleCloudPlatform/functions-framework-dart/workflows/Dart%20Lint%20CI/badge.svg
 [ff_dart_lint_link]:  https://github.com/GoogleCloudPlatform/functions-framework-dart/actions?query=workflow%3A"Dart+Lint+CI"
 
@@ -269,7 +269,7 @@ The framework should return 4XX HTTP status error codes for client errors and 5X
 [ff_ruby_conformance_link]:  https://github.com/GoogleCloudPlatform/functions-framework-ruby/actions?query=workflow%3A"Ruby+Conformance+CI"
 [ff_dotnet_conformance_img]: https://github.com/GoogleCloudPlatform/functions-framework-dotnet/workflows/.NET%20Conformance%20CI/badge.svg
 [ff_dotnet_conformance_link]:  https://github.com/GoogleCloudPlatform/functions-framework-dotnet/actions?query=workflow%3A".NET+Conformance+CI"
-[ff_cpp_conformance_link]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/actions?query=workflow%3A"C%2B%2B+Conformance+CI"
-[ff_cpp_conformance_img]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/workflows/.NET%20Conformance%20CI/badge.svg
+[ff_cpp_conformance_img]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/workflows/C++%20Conformance%20CI/badge.svg
+[ff_cpp_conformance_link]: https://github.com/GoogleCloudPlatform/functions-framework-cpp/actions?query=workflow%3A%22C%2B%2B+Conformance+CI%22
 [ff_dart_conformance_link]:  https://github.com/GoogleCloudPlatform/functions-framework-dart/actions?query=workflow%3A"Dart+Conformance+CI"
 [ff_dart_conformance_img]: https://github.com/GoogleCloudPlatform/functions-framework-dart/workflows/Dart%20Conformance%20CI/badge.svg
