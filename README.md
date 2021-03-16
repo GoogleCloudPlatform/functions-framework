@@ -154,6 +154,12 @@ Your function have must use the following signature:
 
 The developer's function must either explicitly or implicitly signal that it has completed performing useful work. The function may explicitly signal this condition by explicitly returning. The function may implicitly signal this condition by simply evaluating until it reaches the end of the function's code block.
 
+#### Traceparent Header
+
+In addition to the standard CloudEvent properties, the framework **may** add a `traceparent` property to the `cloudevent` object, following the [Distributed Tracing extension](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md). This value for this property is retrieved from the HTTP header name: `traceparent`.
+
+More about the `traceparent` header can be read in [W3C Trace Content docs](https://w3c.github.io/trace-context/).
+
 ### Legacy Events (Signature Type: `event`)
 
 The Functions Framework **may** support signature type `events`. This signature supports non-CloudEvent style events. Your function have must use the following signature:
