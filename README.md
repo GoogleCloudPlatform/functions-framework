@@ -171,7 +171,7 @@ Where the parameters have the contents detailed in [background functions](https:
 
 ## Configuration
 
-The framework must allow the developer to specify (1) the port ($PORT) on which the web server listens, (2) the target function to invoke in response to ingress requests and (3) the function's signature type.
+The framework must allow the developer to specify (1) the port ($PORT) on which the web server listens, (2) the target function to invoke in response to ingress requests, (3) the function's signature type and (4) the [format used for logs](#logging-formats).
 
 This configuration may be provided implicitly or explicitly. In some languages, the function's signature type can be inferred by via reflection, inspecting the developer's function signatures, annotations, and exports - using language-idiomatic methods that feel natural to developers. In some languages, the signature type may need to be explicitly signalled by the developer.
 
@@ -194,9 +194,18 @@ Example steps taken by the function-to-app converter may include:
 - injecting a dependency into a dependencies file
 - creating a boilerplate main package
 
-## Stdout/Stderr and Logging expectations
+## Logging Formats
 
 Application logs to stdout/stderr within application code and logs from the Functions Framework itself are expected to appear in stdout/stderr of the process running the Functions Framework.
+
+As part of the configuration, deployers can specify a format logs should conform to:
+- **plain**: output logs exactly as they are entered
+  - eg: `logging.info("hello world")` -> `hello world`
+- **structured**: output logs in JSON format, including metadata along with the log message
+  - eg: `logging.info("hello world")` -> `{"message": "hello world", "severity": "INFO", "timestamp": 12345}
+  - the main text should appear in the "message" field. Other fields are up to the implementer
+
+Along with these options, implementors can add platform-specific formats that can be configured at deploy-time.
 
 ## HTTP Status Codes
 
