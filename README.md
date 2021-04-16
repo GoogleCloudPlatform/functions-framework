@@ -69,7 +69,7 @@ Command-line flag         | Environment variable      | Description
 > Test framework conformance with this tool:
 > https://github.com/GoogleCloudPlatform/functions-framework-conformance
 
-This contract builds upon the baseline compliance of the existing Cloud Run contract (e.g. the [Knative Runtime Contract](https://github.com/knative/serving/blob/master/docs/runtime-contract.md)), which itself is built on OCI.
+This contract builds upon the baseline compliance of the existing Cloud Run contract (e.g. the [Knative Runtime Contract](https://github.com/knative/specs/blob/main/specs/serving/runtime-contract.md)), which itself is built on OCI.
 
 ## Goal
 
@@ -93,7 +93,7 @@ The framework should be able to gracefully handle these dynamics, for example, b
 
 ### Lifecycle
 
-The framework must load the function located and defined by the `FUNCTION_TARGET` environment variable on startup and create a local web server that listens for inbound HTTP requests. As stated in the Knative serving contract ([Process](https://github.com/knative/serving/blob/master/docs/runtime-contract.md#process)), the web server must listen for ingress requests on the port defined by the `PORT` environment variable.
+The framework must load the function located and defined by the `FUNCTION_TARGET` environment variable on startup and create a local web server that listens for inbound HTTP requests. As stated in the Knative serving contract ([Process](https://github.com/knative/specs/blob/main/specs/serving/runtime-contract.md#process)), the web server must listen for ingress requests on the port defined by the `PORT` environment variable.
 
 When a caller sends an HTTP request to the web server, the framework must take unmarshalling steps according to the developer's specified function signature type. The function must then be invoked by passing appropriate arguments conforming to the developer's specified function signature type.
 
@@ -103,7 +103,7 @@ No work is done after a response is sent.
 
 For performance, efficiency and correctness reasons, the framework must be able to handle multiple concurrent invocations of the developer's function.
 
-When the framework and function are deployed as a container to a Knative environment, additional [Lifecycle considerations](https://github.com/knative/serving/blob/master/docs/runtime-contract.md#lifecycle) apply.  As a general rule of thumb, frameworks should do as much as possible to ensure they are ready to receive traffic before listening on the HTTP port.
+When the framework and function are deployed as a container to a Knative environment, additional [Lifecycle considerations](https://github.com/knative/specs/blob/main/specs/serving/runtime-contract.md#lifecycle) apply.  As a general rule of thumb, frameworks should do as much as possible to ensure they are ready to receive traffic before listening on the HTTP port.
 
 ## URL Space
 
