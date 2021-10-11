@@ -47,7 +47,7 @@ Legend:
 
 ## Specification Summary
 
-A Functions Framework instantiates web server and invokes function code in response to an **HTTP** or **CloudEvent** request depending on the function's signature type. A Functions Framework may also optionally support functions with signature type `event` for legacy-style events.
+A Functions Framework instantiates web server and invokes function code in response to an **HTTP** (`http`) or **CloudEvent** (`cloudevent`) request depending on the function's signature type. A Functions Framework may also optionally support functions with signature type `event` for legacy-style events.
 
 The Functions Framework library must be configurable via environment variables and may be configurable via command-line flags:
 
