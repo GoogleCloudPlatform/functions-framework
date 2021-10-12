@@ -49,15 +49,13 @@ Legend:
 
 A Functions Framework instantiates web server and invokes function code in response to an **HTTP** (`http`) or **CloudEvent** (`cloudevent`) request depending on the function's signature type. A Functions Framework may also optionally support functions with signature type `event` for legacy-style events.
 
-The Functions Framework library must be configurable via environment variables and may be configurable via command-line flags:
+The Functions Framework library may be configurable via command-line flags, environment variables, or within the function code itself:
 
 Required | Command-line flag | Environment variable | Description
 --- | --- | --- | ---
 YES | `--port` | `PORT` | The port on which the Functions Framework listens for requests. Default: `8080`
-NO | `--target` | `FUNCTION_TARGET` | The name of the exported function to be invoked in response to requests. Default: `function`
-NO | `--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when writing your function. Controls unmarshalling rules and determines which arguments are used to invoke your function for non-declarative functions. Default: `http`; accepted values: `http` or `cloudevent`
-
-The Functions Framework library may provide a declarative configuration for the function's signature type. In this case, the user will specify the signature in the function's code.
+YES | `--target` | `FUNCTION_TARGET` | The name of the exported function to be invoked in response to requests. Default: `function`
+NO | `--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when writing your function. Controls unmarshalling rules and determines which arguments are used to invoke your function. The Functions Framework library may provide a way to express the function signature type in code, such as through registration APIs or annotations, instead of by flag or environment variable. Default: `http`; accepted values: `http` or `cloudevent`
 
 > Note: `SIGNATURE_TYPE: event` supports legacy, non-CloudEvent events. Support for these event formats are not required for Function Frameworks.
 
