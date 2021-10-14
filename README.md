@@ -177,9 +177,9 @@ This configuration may be provided implicitly or explicitly. In some languages, 
 
 The framework may, for developer convenience, provide multiple mechanisms (for example, environment variables, command-line arguments, configuration files) for developers to specify configuration. If multiple methods are provided, the order of precedence must be the following:
 
-- Source code configurations
-- Command-line flags
-- Environment variables
+1. Source code configurations
+1. Command-line flags
+1. Environment variables
 
 ## Observability
 
