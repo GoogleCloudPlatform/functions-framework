@@ -175,7 +175,11 @@ The framework must allow the developer to specify (1) the port ($PORT) on which 
 
 This configuration may be provided implicitly or explicitly. In some languages, the function's signature type can be inferred by via reflection, inspecting the developer's function signatures, annotations, and exports - using language-idiomatic methods that feel natural to developers. In some languages, the signature type may need to be explicitly signalled by the developer.
 
-The framework may, for developer convenience, provide multiple mechanisms (for example, environment variables, command-line arguments, configuration files) for developers to specify configuration. If multiple methods are provided, the order of precedence must be clearly specified.
+The framework may, for developer convenience, provide multiple mechanisms (for example, environment variables, command-line arguments, configuration files) for developers to specify configuration. If multiple methods are provided, the order of precedence must be the following:
+
+- Source code configurations
+- Command-line flags
+- Environment variables
 
 ## Observability
 
