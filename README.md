@@ -47,15 +47,15 @@ Legend:
 
 ## Specification Summary
 
-A Functions Framework instantiates web server and invokes function code in response to an HTTP request (`http`) or CloudEvent request (`cloudevent`) depending on the function's signature type. A Functions Framework may optionally support functions with signature type `event` for legacy-style events.
+A Functions Framework instantiates web server and invokes function code in response to an **HTTP** (`http`) or **CloudEvent** (`cloudevent`) request depending on the function's signature type. A Functions Framework may also optionally support functions with signature type `event` for legacy-style events.
 
-The Functions Framework library must be configurable via environment variables and may be configurable via command-line flags:
+The Functions Framework library may be configurable via command-line flags, environment variables, or within the function code itself:
 
-Command-line flag         | Environment variable      | Description
-------------------------- | ------------------------- | -----------
-`--port`                    | `PORT`                    | The port on which the Functions Framework listens for requests. Default: `8080`
-`--target`         | `FUNCTION_TARGET`         | The name of the exported function to be invoked in response to requests. Default: `function`
-`--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when writing your function. Controls unmarshalling rules and determines which arguments are used to invoke your function. Default: `http`; accepted values: `http` or `cloudevent`
+Required | Command-line flag | Environment variable | Description
+--- | --- | --- | ---
+YES | `--port` | `PORT` | The port on which the Functions Framework listens for requests. Default: `8080`
+YES | `--target` | `FUNCTION_TARGET` | The name of the exported function to be invoked in response to requests. Default: `function`
+NO | `--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when writing your function. Controls unmarshalling rules and determines which arguments are used to invoke your function. The Functions Framework library may provide a way to express the function signature type in code, such as through registration APIs or annotations, instead of by flag or environment variable. Default: `http`; accepted values: `http` or `cloudevent`
 
 > Note: `SIGNATURE_TYPE: event` supports legacy, non-CloudEvent events. Support for these event formats are not required for Function Frameworks.
 
@@ -175,7 +175,11 @@ The framework must allow the developer to specify (1) the port ($PORT) on which 
 
 This configuration may be provided implicitly or explicitly. In some languages, the function's signature type can be inferred by via reflection, inspecting the developer's function signatures, annotations, and exports - using language-idiomatic methods that feel natural to developers. In some languages, the signature type may need to be explicitly signalled by the developer.
 
-The framework may, for developer convenience, provide multiple mechanisms (for example, environment variables, command-line arguments, configuration files) for developers to specify configuration. If multiple methods are provided, the order of precedence must be clearly specified.
+The framework may, for developer convenience, provide multiple mechanisms (for example, environment variables, command-line arguments, configuration files) for developers to specify configuration. If multiple methods are provided, the order of precedence must be the following:
+
+1. Source code configurations
+1. Command-line flags
+1. Environment variables
 
 ## Observability
 
