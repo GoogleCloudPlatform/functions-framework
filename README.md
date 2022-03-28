@@ -154,6 +154,15 @@ Your function have must use the following signature:
 
 The developer's function must either explicitly or implicitly signal that it has completed performing useful work. The function may explicitly signal this condition by explicitly returning. The function may implicitly signal this condition by simply evaluating until it reaches the end of the function's code block.
 
+### Legacy Events (Signature Type: `event`)
+
+The Functions Framework **may** support signature type `events`. This signature supports non-CloudEvent style events. Your function have must use the following signature:
+
+- 1st parameter `data`
+- 2nd parameter `context`
+
+Where the parameters have the contents detailed in [background functions](https://cloud.google.com/functions/docs/writing/background#function_parameters).
+
 ## HTTP Headers
 
 ### Traceparent Header
@@ -165,15 +174,6 @@ More about the `traceparent` header can be read in [W3C Trace Content docs](http
 ### No eTag Header
 
 To prevent caching, by default, the Functions Framework should *not* send an `etag` header in the HTTP response.
-
-## Legacy Events (Signature Type: `event`)
-
-The Functions Framework **may** support signature type `events`. This signature supports non-CloudEvent style events. Your function have must use the following signature:
-
-- 1st parameter `data`
-- 2nd parameter `context`
-
-Where the parameters have the contents detailed in [background functions](https://cloud.google.com/functions/docs/writing/background#function_parameters).
 
 ## Configuration
 
