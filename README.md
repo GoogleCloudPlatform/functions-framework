@@ -146,7 +146,7 @@ When the container receives an ingress request, the framework must invoke the de
 
 The Functions Framework **must** support signature type `cloudevent`.
 
-When the container receives an ingress request, the framework must invoke the developer's function by passing an object corresponding to a [CloudEvents type](https://github.com/cloudevents/spec/blob/master/spec.md). This object does not expose HTTP semantics to the developer's function. The framework must handle unmarshalling HTTP requests into the CloudEvents object that is passed to the developer's function, and should support both [binary and structured content modes](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md#3-http-message-mapping) for incoming HTTP CloudEvent requests. This is usually done through a CloudEvents SDK.
+When the container receives an ingress request, the framework must invoke the developer's function by passing an object corresponding to a [CloudEvents](https://cloudevents.io/) [type](https://github.com/cloudevents/spec/). This object does not expose HTTP semantics to the developer's function. The framework must handle unmarshalling HTTP requests into the CloudEvents object that is passed to the developer's function, and should support both [binary and structured content modes](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md#3-http-message-mapping) for incoming HTTP CloudEvent requests. This is usually done through a CloudEvents SDK.
 
 Your function have must use the following signature:
 
