@@ -121,10 +121,7 @@ Requesting this URL would invoke the function `$FUNCTION_TARGET`.
 
 In a different example, a service using the Functions Framework could have the url `us-central1-my-gcp-project.cloudfunctions.net/my-function`.
 
-> Note that the framework must listen to all inbound paths (`.*`) and route these requests to the function, with the following exceptions:
-> 
-> - `/robots.txt` - must respond with 404 without invoking function
-> - `/favicon.ico` - must response with 404 without invoking function
+> Note that the framework must listen to all inbound paths (`.*`) and route these requests to the function, without exceptions.
 
 ## Supported Function Types
 
