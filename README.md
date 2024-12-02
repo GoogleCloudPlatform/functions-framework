@@ -1,11 +1,11 @@
 # Functions Framework
 
-The Google Cloud Function Frameworks are open source libraries for writing portable Google Cloud functions -- brought to you by the Google Cloud Functions team.
+The Google Cloud Function Frameworks are open source libraries for writing portable Google Cloud Run functions
 
 The Functions Framework lets you write lightweight functions that run in many
 different environments, including:
 
-*   [Google Cloud Functions](https://cloud.google.com/functions/)
+*   [Google Cloud Run functions](https://cloud.google.com/functions/)
 *   Your local development machine
 *   [Cloud Run and Cloud Run on GKE](https://cloud.google.com/run/)
 *   [Knative](https://github.com/knative/)-based environments
@@ -69,7 +69,7 @@ NO | `--signature-type` | `FUNCTION_SIGNATURE_TYPE` | The signature used when wr
 > Test framework conformance with this tool:
 > https://github.com/GoogleCloudPlatform/functions-framework-conformance
 
-This contract builds upon the baseline compliance of the existing Cloud Run contract (e.g. the [Knative Runtime Contract](https://github.com/knative/specs/blob/main/specs/serving/runtime-contract.md)), which itself is built on OCI.
+This contract builds upon the baseline compliance of the existing Cloud Run contract (e.g. the [Knative Runtime Contract](https://github.com/knative/specs/blob/main/specs/serving/runtime-contract.md)), which itself is built on [OCI](https://opencontainers.org/).
 
 ## Goal
 
